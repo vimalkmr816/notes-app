@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { createContext, useContext, useState } from "react"
+import { Provider } from "react-redux"
+import uuid from "react-uuid"
+import "scrollable-component"
+import "./App.css"
+import MainScreen from "./components/Mainscreen/MainScreen"
+import Sidebar from "./components/Sidebar/Sidebar"
+import { store } from "./redux/store"
+import useStyles from "./styles/index"
+
+export const AppContext = createContext()
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [note, setNote] = useState({ text: "", title: "" })
+	const classes = useStyles()
+	const id = uuid()
+	return (
+		<AppContext.Provider value={id}>
+			<Provider store={store}>
+				<h1 style={{ position: "absolute", top: "1rem", right: "40%", margin: "0.2rem" }}>NoteKey</h1>
+				<div className={classes.rootContainer}>
+					<Sidebar note={note}></Sidebar>
+					<MainScreen setNote={setNote} note={note}></MainScreen>
+				</div>
+			</Provider>
+		</AppContext.Provider>
+	)
 }
 
-export default App;
+export default App
