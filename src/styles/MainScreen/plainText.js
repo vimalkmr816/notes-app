@@ -1,11 +1,11 @@
-import { createUseStyles } from "react-jss"
+import { createUseStyles } from "react-jss";
 
-export default createUseStyles({
+export default createUseStyles ( {
 	plainTextContainer: {
-		width: "50%",
-		height: "95%",
-		padding: "1rem",
-		borderRadius: "10px",
-		background: "#e7e7e7",
-	},
-})
+		width        : "50%",
+		height       : "95%",
+		padding      : "1rem",
+		borderRadius : "10px",
+		background   : "#e7e7e7"
+	}
+} );

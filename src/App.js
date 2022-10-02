@@ -1,30 +1,33 @@
-import { createContext, useContext, useState } from "react"
-import { Provider } from "react-redux"
-import uuid from "react-uuid"
-import "scrollable-component"
-import "./App.css"
-import MainScreen from "./components/Mainscreen/MainScreen"
-import Sidebar from "./components/Sidebar/Sidebar"
-import { store } from "./redux/store"
-import useStyles from "./styles/index"
+import { createContext, useContext, useState } from "react";
+import { Provider }                            from "react-redux";
+import uuid                                    from "react-uuid";
+import "scrollable-component";
+import "./App.css";
+import MainScreen                              from "./components/Mainscreen/MainScreen";
+import Sidebar                                 from "./components/Sidebar/Sidebar";
+import { store }                               from "./redux/store";
+import useStyles                               from "./styles/index";
 
-export const AppContext = createContext()
+export const AppContext = createContext ();
 
-function App() {
-	const [note, setNote] = useState({ text: "", title: "" })
-	const classes = useStyles()
-	const id = uuid()
+function App () {
+	const [ note, setNote ] = useState ( { text: "", title: "" } );
+	const classes           = useStyles ();
+
 	return (
-		<AppContext.Provider value={id}>
-			<Provider store={store}>
-				<h1 style={{ position: "absolute", top: "1rem", right: "40%", margin: "0.2rem" }}>NoteKey</h1>
-				<div className={classes.rootContainer}>
-					<Sidebar note={note}></Sidebar>
-					<MainScreen setNote={setNote} note={note}></MainScreen>
-				</div>
-			</Provider>
-		</AppContext.Provider>
-	)
+		<Provider store = { store }>
+			<h1 style = { { position: "absolute", top: "1rem", right: "40%", margin: "0.2rem" } }>NoteKey</h1>
+
+			<div className = { classes.rootContainer }>
+				<Sidebar note = { note }></Sidebar>
+
+				<MainScreen note = { note }
+					setNote = { setNote }
+				>
+				</MainScreen>
+			</div>
+		</Provider>
+	);
 }
 
-export default App
+export default App;

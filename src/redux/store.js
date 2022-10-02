@@ -1,8 +1,8 @@
-import { configureStore } from "@reduxjs/toolkit"
-import noteDataSlice from "./noteData"
+import { configureStore } from "@reduxjs/toolkit";
+import noteDataSlice      from "./noteDataSlice";
 
-export const store = configureStore({
+export const store = configureStore ( {
 	reducer: {
-		noteData: noteDataSlice,
-	},
-})
+		noteData: noteDataSlice
+	}
+} );

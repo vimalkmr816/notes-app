@@ -1,15 +1,18 @@
-import React from "react"
-import ReactMarkdown from "react-markdown"
-import useStyles from "../../styles/MainScreen/plainText"
+import React         from "react";
+import ReactMarkdown from "react-markdown";
+import useStyles     from "../../styles/MainScreen/plainText";
 
 const PlainText = props => {
-	const { markdown } = props
-	const classes = useStyles()
-	return (
-		<div className={classes.plainTextContainer}>
-			<ReactMarkdown>{markdown}</ReactMarkdown>
-		</div>
-	)
-}
+	const { markdown } = props;
+	const classes      = useStyles ();
 
-export default PlainText
+	return (
+		<div className = { classes.plainTextContainer }>
+			<ReactMarkdown>
+				{markdown}
+			</ReactMarkdown>
+		</div>
+	);
+};
+
+export default PlainText;

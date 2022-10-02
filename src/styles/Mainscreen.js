@@ -1,12 +1,12 @@
-import { createUseStyles } from "react-jss"
+import { createUseStyles } from "react-jss";
 
-export default createUseStyles({
+export default createUseStyles ( {
 	mainScreenContainer: {
-		display: "flex",
-		alignItems: "start",
-		justifyContent: "start",
-		gap: "1rem",
-		width: "80%",
-		height: "90vh",
-	},
-})
+		display        : "flex",
+		alignItems     : "start",
+		justifyContent : "start",
+		gap            : "1rem",
+		width          : "80%",
+		height         : "90vh"
+	}
+} );
