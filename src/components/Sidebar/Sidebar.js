@@ -4,7 +4,8 @@ import uuid            from "react-uuid";
 import { addNote }     from "../../redux/noteDataSlice";
 import useStyles       from "../../styles/Sidebar";
 import NotesList       from "./Notes/NotesList";
-
+import SortFilter      from "./sidebarMenu/SortFilter";
+import SidebarMenu     from "./sidebarMenu/SidebarMenu";
 const Sidebar = props => {
 	const { note } = props;
 	const dispatch = useDispatch ();
@@ -16,13 +17,19 @@ const Sidebar = props => {
 
 	return (
 		<div className = { classes.sidebarContainer }>
-			<button className = { classes.addBtn }
-				onClick = { handleAddNote }
-			>
-				ADD NOTE
-			</button>
+			<SidebarMenu />
 
-			<NotesList></NotesList>
+			<SortFilter />
+
+			<div>
+				<button className = { classes.addBtn }
+					onClick = { handleAddNote }
+				>
+					ADD NOTE
+				</button>
+
+				<NotesList></NotesList>
+			</div>
 		</div>
 	);
 };

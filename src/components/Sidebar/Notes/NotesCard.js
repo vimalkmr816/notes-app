@@ -1,10 +1,15 @@
 import DeleteIcon      from "@mui/icons-material/Delete";
+import { IconButton }  from "@mui/material";
+import Card            from "@mui/material/Card";
+import CardActions     from "@mui/material/CardActions";
+import CardContent     from "@mui/material/CardContent";
+import Typography      from "@mui/material/Typography";
 import React           from "react";
 import { useDispatch } from "react-redux";
 import { deleteNote }  from "../../../redux/noteDataSlice";
 import useStyles       from "../../../styles/Sidebar/notesCard";
-const NotesCard = props => {
 
+const NotesCard = props => {
 	const { title, text, date, id } = props;
 
 	const dispatch         = useDispatch ();
@@ -14,26 +19,41 @@ const NotesCard = props => {
 	const classes          = useStyles ();
 
 	return (
-		<div className = { classes.notesCardWrapper }>
-			<h4 className = { classes.notesCardTitle }>
-				{title.substr ( 0, 10 )}
-				....
+		<Card sx = { { minWidth: 275 } }
+			variant = "outlined"
+		>
+			<CardContent className = { classes.notesCardWrapper }>
 
-				<button className = { classes.deleteBtn }
+				<Typography className = { classes.notesCardTitle }
+					component = "div"
+					variant = "h5"
+				>
+					{title}
+				</Typography>
+
+				<Typography gutterBottomx
+					className = { classes.notesCardText }
+					color = "text.secondary"
+				>
+					{text}
+				</Typography>
+
+				<Typography color = "text.secondary"
+					sx = { { mt: 1.5 } }
+				>
+					{date}
+				</Typography>
+			</CardContent>
+
+			<CardActions>
+				<IconButton
+					aria-label = "delete"
 					onClick = { () => handleDeleteNote ( id ) }
 				>
 					<DeleteIcon />
-				</button>
-			</h4>
-
-			<p className = { classes.notesCardText }>
-				{text}
-			</p>
-
-			<span className = { classes.notesCardDate }>
-				{date}
-			</span>
-		</div>
+				</IconButton>
+			</CardActions>
+		</Card>
 	);
 };
 

@@ -1,18 +1,15 @@
 import { createUseStyles } from "react-jss";
 
 export default createUseStyles ( {
-	markdownScreenContainer: {
-		width        : "50%",
-		height       : "95%",
+	textInputContainer: {
+		margin       : "1rem",
 		padding      : "1rem",
 		borderRadius : "10px",
-		background   : "#e7e7e7",
-		alignSelf    : ""
+		border       : "2px solid"
 	},
 	inputSection: {
+		resize     : "none",
 		marginTop  : "1rem",
-		height     : "100%",
-		width      : "100%",
 		background : "transparent",
 		border     : "none",
 		"&:focus"  : {
